@@ -4,7 +4,6 @@ const mongoose = require('mongoose')
 const { dbURI } = require('../functions')
 const { successMsg } = require('../functions')
 // env variables
-const config = require('config')
 
 // functions
 const db = async (dbName, serverStart) => {

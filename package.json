@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watch",
-    "dev": "cross-env NODE_ENV=dev nodemon app",
-    "testENV": "cross-env NODE_ENV=test nodemon app.js"
+    "dev": "nodemon app",
+    "test_env": "nodemon app.js"
   },
   "jest": {
     "testEnvironment": "node"
