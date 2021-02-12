@@ -1,20 +1,13 @@
 // packages
 const express = require('express')
-
 // models
 const Item = require('./models/item')
 // varaibles
 const app = express()
-const { db } = require('./db')
-const { successMsg } = require('./functions')
+require('./db')
 
 // functions
-db(
-  'test-test',
-  app.listen(3000, () => {
-    successMsg('server running')
-  })
-)
+
 // middleware
 app.use(express.json())
 // routes
@@ -31,3 +24,5 @@ app.get('/items', async (req, res) => {
   const items = await Item.find()
   res.status(200).send(items)
 })
+
+module.exports = app

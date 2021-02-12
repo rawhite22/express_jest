@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch",
-    "dev": "nodemon app",
-    "test_env": "nodemon app.js"
+    "start": "jest --detectOpenHandles --watch",
+    "dev": "env-cmd -f ./config/dev.env  nodemon index.js",
+    "test": "env-cmd -f ./config/test.env jest --detectOpenHandles --watch"
   },
   "jest": {
     "testEnvironment": "node"
@@ -17,8 +17,10 @@
     "chalk": "^4.1.0",
     "config": "^3.3.3",
     "cross-env": "^7.0.3",
+    "env-cmd": "^10.1.0",
     "express": "^4.17.1",
     "jest": "^26.6.3",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.15",
     "supertest": "^6.1.3"
   }

@@ -1,26 +1,23 @@
 // packages
+const chalk = require('chalk')
 const mongoose = require('mongoose')
 // variables
-const { dbURI } = require('../functions')
-const { successMsg } = require('../functions')
+const { successMsg, infoMsg } = require('../functions')
 // env variables
 
 // functions
-const db = async (dbName, serverStart) => {
+const db = async () => {
   try {
-    await mongoose.connect(dbURI(dbName), {
+    await mongoose.connect(process.env.DB_NAME, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
     })
 
-    successMsg('db connected')
-    serverStart
+    infoMsg(`${process.env.DB_NAME} | db connected.`)
   } catch (err) {
     console.log(err)
   }
 }
-// exports
-module.exports = {
-  db,
-}
+
+db()
