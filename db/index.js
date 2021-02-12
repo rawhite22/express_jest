@@ -3,6 +3,9 @@ const mongoose = require('mongoose')
 // variables
 const { dbURI } = require('../functions')
 const { successMsg } = require('../functions')
+// env variables
+const config = require('config')
+
 // functions
 const db = async (dbName, serverStart) => {
   try {
@@ -11,6 +14,7 @@ const db = async (dbName, serverStart) => {
       useUnifiedTopology: true,
       useCreateIndex: true,
     })
+
     successMsg('db connected')
     serverStart
   } catch (err) {

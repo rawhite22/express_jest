@@ -9,6 +9,8 @@ const dbURI = (dbName) => {
 const successMsg = (msg = '') => {
   console.log(chalk.bgGreen.black(msg))
 }
+
+console.log(process.env.NODE_ENV)
 // exports
 module.exports = {
   dbURI,

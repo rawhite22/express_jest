@@ -1,15 +1,20 @@
 // packages
 const express = require('express')
+const config = require('config')
 // models
 const Item = require('./models/item')
 // varaibles
 const app = express()
 const { db } = require('./db')
 const { successMsg } = require('./functions')
+const PORT = config.get('port')
+const dataBase = config.get('dbName')
 // functions
 db(
-  'test',
-  app.listen(3000, () => successMsg('server running'))
+  dataBase,
+  app.listen(PORT, () => {
+    successMsg('server running')
+  })
 )
 // middleware
 app.use(express.json())
